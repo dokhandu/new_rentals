@@ -1,0 +1,118 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - '.git/**/*'
+    - 'bin/**/*'
+    - 'coverage/**/*'
+    - 'db/**/*'
+    - 'log/**/*'
+    - 'tmp/**/*'
+    - 'public/**/*'
+    - 'spec/fixtures/**/*'
+    - 'config/puma.rb'
+    - 'Guardfile'
+    - 'scripts/**/*'
+    - 'local/**/*'
+    - 'config/environments/test.rb'
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  TargetRubyVersion: 3.1.0
+  NewCops: enable
+Metrics/AbcSize:
+  # default 15 is too strict but we can lower in the future
+  Max: 20
+  AllowedMethods:
+    - attributes
+    - call
+    - to_whs
+Metrics/ClassLength:
+  # default 100 is too strict but we can lower in the future
+  Max: 100
+# 10 lines by default is too restrictive
+Metrics/MethodLength:
+  Enabled: false
+# Disagree with these for now
+Metrics/BlockLength:
+  AllowedMethods: [ 'describe', 'context', 'class_methods', 'included', 'define', 'it', 'let', 'shared_context' ]
+Naming/MethodParameterName:
+  AllowedNames:
+    - us
+    - id
+    - ds
+Style/NumericLiterals:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+# Seem broken?
+Style/Alias:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
+
+# Temp disable the below
+Style/RegexpLiteral:
+  Enabled: false
+Style/BlockDelimiters:
+  Enabled: false
+Layout/LineLength:
+  Max: 130
+Lint/RescueException:
+  Enabled: false
+Style/MissingRespondToMissing:
+  Enabled: false
+Lint/UselessMethodDefinition:
+  Enabled: true
+Naming/VariableNumber:
+  Enabled: false
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: optional
+Layout/EndOfLine:
+  Enabled: False
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+Rails/EnumUniqueness:
+  Enabled: False
+
+
+
+# Specs are namespaced with modules so no need to prefix it
+# eg. With `RSpec/FilePath` enabled, rubocop will raise error
+#    => Spec path should end with queries/user*_spec.rb
+# for `users/show_spec` which IMO is not necessary.
+#
+RSpec/FilePath:
+  Enabled: false
+
+# Let's be a bit lenient to begin with. :)
+RSpec/NestedGroups:
+  Max: 6
+
+RSpec/MultipleExpectations:
+  Max: 15
+
+RSpec/ExampleLength:
+  Max: 100
+
+RSpec/ContextWording:
+  Prefixes:
+    - for
+    - when
+    - with
+    - without
+
+RSpec/LetSetup:
+  Enabled: false
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+Metrics/ParameterLists:
+  Max: 10
