@@ -86,5 +86,5 @@ production:
   password: <%= ENV["NEW_RENTALS_DATABASE_PASSWORD"] %>
 
 
-# database_user: sammy
+# database_user: new_rentals
 # password: new_rentals
