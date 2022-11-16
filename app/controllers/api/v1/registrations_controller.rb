@@ -3,7 +3,7 @@
 module Api
   module V1
     class RegistrationsController < Devise::RegistrationsController
-      def new
+      def create
         creator = ::Users::UserCreator.new(params: registration_params)
         creator.call
 

@@ -22,7 +22,6 @@ module ApiErrors
     end
 
     def invalid_resource(record)
-      binding.pry
       render_error(:unprocessable_entity, record.errors.full_messages)
     end
 
