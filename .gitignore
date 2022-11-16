@@ -24,8 +24,6 @@
 /config/master.key
 .idea/
 README.md
-Rakefile
-bin/
 log/
 package.json
 storage/
