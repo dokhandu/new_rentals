@@ -82,8 +82,8 @@ test:
 production:
   <<: *default
   database: new_rentals_production
-  username: <%= ENV["DB_PASSWORD"] %>
-  password: <%= ENV["NEW_RENTAILS_DATABASE_PASSWORD"] %>
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["NEW_RENTALS_DATABASE_PASSWORD"] %>
 
 
 # database_user: sammy
