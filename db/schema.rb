@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_085500) do
     t.bigint "user_id"
     t.string "dzongkhag"
     t.string "gewog"
+    t.string "business_name"
     t.integer "theme_colour"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

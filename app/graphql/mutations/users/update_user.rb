@@ -8,7 +8,7 @@ module Mutations
       field :user, Types::Users::UserType, null: false
 
       def resolve(attributes:)
-        { user: Users::UserUpdater.new(current_user:, params: attributes.to_h).call }
+        { user: ::Users::UserUpdater.new(current_user:, params: attributes.to_h).call }
       end
     end
   end

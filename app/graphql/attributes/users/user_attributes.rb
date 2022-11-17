@@ -13,9 +13,9 @@ module Attributes
                as: :profile_attributes,
                required: false
 
-      argument :subscription,
+      argument :subscription_plan,
                Attributes::SubscriptionPlans::SubscriptionPlanAttributes,
-               as: :subscription_attributes,
+               as: :subscription_plan_attributes,
                required: false
 
       argument :portal_setting,

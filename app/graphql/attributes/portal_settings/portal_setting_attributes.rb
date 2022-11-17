@@ -4,6 +4,7 @@ module Attributes
   module PortalSettings
     class PortalSettingAttributes < Types::BaseInputObject
       argument :id, ID, required: false
+      argument :business_name, String, required: false
       argument :dzongkhag, String, required: false
       argument :gewog, String, required: false
       argument :theme_colour, Types::Enum::PortalSettings::ThemeColourEnum, required: false

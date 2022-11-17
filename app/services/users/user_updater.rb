@@ -3,9 +3,9 @@
 module Users
   class UserUpdater < BaseService
     def call
-      # ActiveRecord::Base.transaction do
-      #   @user = User.new(params).tap(&:save!)
-      # end
+      User.find(params.delete('id')).tap do |user|
+        user.update!(params)
+      end
     end
   end
 end
