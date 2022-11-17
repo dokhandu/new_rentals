@@ -16,6 +16,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'database_cleaner-active_record'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+
   gem 'rails_best_practices'
   gem 'rubocop'
   gem 'rubocop-performance'
@@ -25,5 +26,11 @@ end
 
 group :development do
   gem 'brakeman'
-  gem 'graphiql-rails'
 end
+
+gem 'devise'
+gem 'devise-jwt'
+gem 'graphql'
+gem 'jsonapi-serializer'
+gem 'pry'
+gem 'rack-cors'

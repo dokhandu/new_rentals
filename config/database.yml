@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: new_rentails_test
+  database: new_rentals_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +81,10 @@ test:
 #
 production:
   <<: *default
-  database: new_rentails_production
-  username: new_rentails
-  password: <%= ENV["NEW_RENTAILS_DATABASE_PASSWORD"] %>
+  database: new_rentals_production
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["NEW_RENTALS_DATABASE_PASSWORD"] %>
+
+
+# database_user: new_rentals
+# password: new_rentals
