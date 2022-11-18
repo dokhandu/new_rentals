@@ -17,4 +17,3 @@ module AttributesFormatter
     end
   end
 end
-

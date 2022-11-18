@@ -24,7 +24,6 @@ module Attributes
                required: false
 
       argument :_destroy, Integer, required: false
-
     end
   end
 end

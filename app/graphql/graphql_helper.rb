@@ -5,4 +5,3 @@ module GraphqlHelper
     context[:current_user]
   end
 end
-

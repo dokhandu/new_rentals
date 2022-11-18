@@ -5,4 +5,3 @@ NESTED_ATTRIBUTES = ActiveSupport::HashWithIndifferentAccess.new(
     Rails.root.join('config/nested_attributes.yml').read
   )
 ).freeze
-

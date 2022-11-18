@@ -20,6 +20,9 @@ AllCops:
     - 'scripts/**/*'
     - 'local/**/*'
     - 'config/environments/test.rb'
+    - 'config/environments/development.rb'
+    - 'config/environments/production.rb'
+    - 'config/initializers/devise.rb'
   DisplayCopNames: true
   DisplayStyleGuide: true
   TargetRubyVersion: 3.1.0

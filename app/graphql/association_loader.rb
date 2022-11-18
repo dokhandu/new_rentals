@@ -54,4 +54,3 @@ class AssociationLoader < GraphQL::Batch::Loader
     record.association(@association_name).loaded?
   end
 end
-

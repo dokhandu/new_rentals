@@ -21,4 +21,3 @@ class Phone
     phone.country.try(:country_id)
   end
 end
-

@@ -37,4 +37,3 @@ gem 'jsonapi-serializer'
 gem 'pry'
 gem 'rack-cors'
 gem 'telephone_number'
-

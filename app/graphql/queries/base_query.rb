@@ -5,4 +5,3 @@ module Queries
     include GraphqlHelper
   end
 end
-
