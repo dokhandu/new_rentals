@@ -3,6 +3,7 @@
 class ProfileSerializer < ApplicationSerializer
   attributes(
     :id,
+    :salutation,
     :name
   )
 end
