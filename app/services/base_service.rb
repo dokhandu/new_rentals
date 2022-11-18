@@ -2,6 +2,7 @@
 
 class BaseService
   include Assigner
+  include AttributesFormatter
 
   attr_accessor :params, :current_user, :id
 
