@@ -2,7 +2,7 @@
 
 module Queries
   class Users < Queries::BaseQuery
-    argument :params, Attributes::Users::UserAttributes, required: false
+    argument :params, Attributes::Users::UserFilterAttributes, required: false
     type [Types::Users::UserType], null: false
 
     def resolve(params: {})
