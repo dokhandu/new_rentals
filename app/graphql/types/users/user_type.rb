@@ -11,6 +11,17 @@ module Types
       field :profile, Types::Profiles::ProfileType, null: true
       field :subscription_plan, Types::SubscriptionPlans::SubscriptionPlanType, null: true
       field :portal_setting, Types::PortalSettings::PortalSettingType, null: true
+
+      %i[
+        profile
+        subscription_plan
+        portal_setting
+        role
+      ].each do |association|
+        define_method(association) do
+          preload_association(object, association)
+        end
+      end
     end
   end
 end
