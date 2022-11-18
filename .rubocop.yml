@@ -20,6 +20,9 @@ AllCops:
     - 'scripts/**/*'
     - 'local/**/*'
     - 'config/environments/test.rb'
+    - 'config/environments/development.rb'
+    - 'config/environments/production.rb'
+    - 'config/initializers/devise.rb'
   DisplayCopNames: true
   DisplayStyleGuide: true
   TargetRubyVersion: 3.1.0
@@ -87,7 +90,7 @@ Rails/EnumUniqueness:
 
 # Specs are namespaced with modules so no need to prefix it
 # eg. With `RSpec/FilePath` enabled, rubocop will raise error
-#    => Spec path should end with queries/user*_spec.rb
+#    => Spec path should end with queries/users*_spec.rb
 # for `users/show_spec` which IMO is not necessary.
 #
 RSpec/FilePath:

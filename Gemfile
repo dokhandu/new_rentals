@@ -26,11 +26,14 @@ end
 
 group :development do
   gem 'brakeman'
+  gem 'bullet'
 end
 
 gem 'devise'
 gem 'devise-jwt'
 gem 'graphql'
+gem 'graphql-batch'
 gem 'jsonapi-serializer'
 gem 'pry'
 gem 'rack-cors'
+gem 'telephone_number'

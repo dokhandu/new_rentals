@@ -3,6 +3,13 @@
 class UserSerializer < ApplicationSerializer
   attributes(
     :id,
-    :email
+    :email,
+    :status,
+    :enabled,
+    :role_id
   )
+  belongs_to :role
+  has_one :subscription_plan
+  has_one :portal_setting
+  has_one :profile
 end

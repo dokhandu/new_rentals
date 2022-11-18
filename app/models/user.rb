@@ -14,4 +14,18 @@ class User < ApplicationRecord
   )
 
   include Devise::JWT::RevocationStrategies::JTIMatcher
+
+  belongs_to :role
+  has_one :profile, dependent: :destroy
+  has_one :subscription_plan, dependent: :destroy
+  has_one :portal_setting, dependent: :destroy
+
+  enum status: { inactive: 0, active: 2 }
+
+  accepts_nested_attributes_for(
+    :profile,
+    :subscription_plan,
+    :portal_setting,
+    allow_destroy: true
+  )
 end

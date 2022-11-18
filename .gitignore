@@ -37,6 +37,7 @@ vendor/
 yarn-debug.log*
 .yarn-integrity
 coverage
+SERVER.md
 .env
 *.DS_Store
 *.sql

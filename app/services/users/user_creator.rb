@@ -5,6 +5,8 @@ module Users
     attr_accessor :user
 
     def call
+      format_attributes!(:user)
+
       ActiveRecord::Base.transaction do
         @user = User.new(params).tap(&:save!)
       end

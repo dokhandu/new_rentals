@@ -6,3 +6,18 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+Role.create(
+  [
+    {
+      role_name: :user
+    },
+    {
+      role_name: :tenant
+    },
+    {
+      role_name: :owner
+    }
+  ]
+)

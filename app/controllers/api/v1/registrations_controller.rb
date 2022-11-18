@@ -15,7 +15,23 @@ module Api
       def registration_params
         params.require(:user).permit(
           :email,
-          :password
+          :password,
+          :password_confirmation,
+          :role_id,
+          :status,
+          :enabled,
+          profile: %i[
+            full_name
+            phone
+            gender
+          ],
+          subscription_plan: [:name],
+          portal_setting: %i[
+            business_name
+            dzongkhag
+            gewog
+            theme_colour
+          ]
         )
       end
     end
