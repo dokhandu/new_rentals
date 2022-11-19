@@ -18,9 +18,10 @@ class Attachment < ApplicationRecord
             file_content_type: {
               allow: %w[
                 text/csv image/jpeg image/jpg image/png application/pdf application/vnd.ms-excel application/msword
-                        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/vnd.ms-visio.viewer
-                        application/vnd.openxmlformats-officedocument.wordprocessingml.document application/vnd.visio
-                        application/vnd.ms-excel.sheet.macroenabled.12 application/vnd.oasis.opendocument.spreadsheet
+                application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/vnd.ms-visio.viewer
+                application/vnd.openxmlformats-officedocument.wordprocessingml.document application/vnd.visio
+                application/vnd.ms-excel.sheet.macroenabled.12 application/vnd.oasis.opendocument.spreadsheet
+                application/zip
               ]
             }
 
