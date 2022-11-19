@@ -29,8 +29,10 @@ group :development do
   gem 'bullet'
 end
 
+gem 'apollo_upload_server'
 gem 'devise'
 gem 'devise-jwt'
+gem 'file_validators'
 gem 'graphql'
 gem 'graphql-batch'
 gem 'jsonapi-serializer'
