@@ -11,12 +11,15 @@ module Types
       field :profile, Types::Profiles::ProfileType, null: true
       field :subscription_plan, Types::SubscriptionPlans::SubscriptionPlanType, null: true
       field :portal_setting, Types::PortalSettings::PortalSettingType, null: true
+      field :profile_pic, Types::Attachments::AttachmentType, null: true
+      field :profile_background, Types::Attachments::AttachmentType, null: true
 
       %i[
         profile
         subscription_plan
         portal_setting
         role
+        attachments
       ].each do |association|
         define_method(association) do
           preload_association(object, association)

@@ -6,6 +6,7 @@ class CreateAmenities < ActiveRecord::Migration[7.0]
       t.string :sat_details
       t.string :at_type
       t.string :at_details
+      t.string :type
 
       t.timestamps
     end

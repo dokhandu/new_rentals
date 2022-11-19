@@ -8,5 +8,6 @@ module Types
 
     # Users
     field :users, resolver: Queries::Users
+    field :user, resolver: Queries::User
   end
 end

@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_18_164108) do
     t.string "sat_details"
     t.string "at_type"
     t.string "at_details"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["amenitable_type", "amenitable_id"], name: "index_amenities_on_amenitable"
@@ -98,7 +99,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_18_164108) do
     t.integer "property_type"
     t.integer "occupancy_type"
     t.string "property_name"
+    t.string "lat"
+    t.string "lng"
     t.string "property_description"
+    t.string "neighbourhood_details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id"], name: "index_properties_on_owner_id"
