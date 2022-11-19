@@ -22,6 +22,7 @@ module Api
           :enabled,
           profile: %i[
             full_name
+            salutation
             phone
             gender
           ],

@@ -7,6 +7,7 @@ module Attributes
       argument :full_name, String, required: false
       argument :phone, String, required: false
       argument :gender, Types::Enum::Profiles::GenderEnum, required: false
+      argument :salutation, Types::Enum::Profiles::SalutationEnum, required: false
       argument :_destroy, Integer, required: false
     end
   end

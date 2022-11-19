@@ -20,6 +20,24 @@ class User < ApplicationRecord
   has_one :subscription_plan, dependent: :destroy
   has_one :portal_setting, dependent: :destroy
 
+  has_one(
+    :profile_pic,
+    -> { where(category: :avatar) },
+    class_name: 'Attachment',
+    as: :attachable,
+    dependent: :destroy,
+    inverse_of: :user
+  )
+
+  has_one(
+    :profile_background,
+    -> { where(category: :avatar_background) },
+    class_name: 'Attachment',
+    as: :attachable,
+    dependent: :destroy,
+    inverse_of: :user
+  )
+
   enum status: { inactive: 0, active: 2 }
 
   accepts_nested_attributes_for(
