@@ -13,5 +13,8 @@ module Types
     # Units
     field :units, resolver: Queries::Units
     field :unit, resolver: Queries::Unit
+
+    # Property
+    field :property, resolver: Queries::Property
   end
 end
