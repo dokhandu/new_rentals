@@ -7,6 +7,7 @@ module Types
 
     # Property
     field :create_property, mutation: Mutations::Properties::CreateProperty
+    field :update_property, mutation: Mutations::Properties::UpdateProperty
 
     # Attachment
     field :create_attachment, mutation: ::Mutations::Attachments::CreateAttachment

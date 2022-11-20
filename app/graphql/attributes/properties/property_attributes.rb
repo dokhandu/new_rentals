@@ -3,8 +3,6 @@
 module Attributes
   module Properties
     class PropertyAttributes < Types::BaseInputObject
-      graphql_name 'CreatePropertyAttributes'
-
       argument :id, ID, required: false
       argument :owner_id, ID, required: true
       argument :property_type, Types::Enum::Properties::PropertyTypeEnum, required: true
