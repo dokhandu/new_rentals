@@ -3,7 +3,7 @@
 class BaseController < ApplicationController
   include GraphqlHelpers
 
-  PUBLIC = %w[properties].freeze
+  PUBLIC = %w[units unit].freeze
   before_action :authenticate_user!, if: -> { need_authentication? }
 
   def need_authentication?
