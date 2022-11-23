@@ -87,7 +87,11 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.active_storage.service = :local
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'newrentals.tk', protocol: 'https' }
+  config.action_mailer.default_url_options = {
+    :host => 'newrentals.tk',
+    protocol: 'https',
+    from: ENV.fetch('GMAIL_USERNAME', nil)
+  }
 
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
