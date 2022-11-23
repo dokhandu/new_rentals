@@ -11,5 +11,8 @@ module Types
 
     # Attachment
     field :create_attachment, mutation: ::Mutations::Attachments::CreateAttachment
+
+    # Tenant
+    field :create_tenant, mutation: ::Mutations::Tenants::CreateTenant
   end
 end

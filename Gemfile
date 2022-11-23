@@ -29,6 +29,7 @@ group :development do
   gem 'bullet'
 end
 
+gem 'aasm'
 gem 'apollo_upload_server'
 gem 'devise'
 gem 'devise-jwt'

@@ -34,7 +34,7 @@ module Resolver
     end
 
     def filter_by_occupancy(units)
-      return properties if occupancy_type.blank?
+      return units if occupancy_type.blank?
 
       filtered_units(units.pluck(:id)).joins(:property).where(property: { occupancy_type: })
     end
