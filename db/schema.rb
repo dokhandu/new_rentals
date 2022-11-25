@@ -147,8 +147,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_140701) do
     t.integer "monthly_rent"
     t.boolean "occupied"
     t.string "unit_number"
-    t.string "nos_of_bed"
-    t.string "nos_of_bath"
+    t.integer "nos_of_bed"
+    t.integer "nos_of_bath"
     t.string "unit_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -180,7 +180,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_140701) do
   add_foreign_key "profiles", "users"
   add_foreign_key "subscription_plans", "users"
   add_foreign_key "tenants", "properties"
-  add_foreign_key "tenants", "units"
   add_foreign_key "tenants", "users"
+  add_foreign_key "units", "properties"
   add_foreign_key "users", "roles"
 end
