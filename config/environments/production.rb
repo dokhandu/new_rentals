@@ -86,4 +86,19 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.active_storage.service = :local
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {
+    :host => 'newrentals.tk',
+    protocol: 'https',
+    from: ENV.fetch('GMAIL_USERNAME', nil)
+  }
+
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :user_name => ENV["GMAIL_USERNAME"],
+    :password => ENV["GMAIL_PASSWORD"],
+    :authentication => "plain",
+    :renable_starttls_auto => true
+  }
 end

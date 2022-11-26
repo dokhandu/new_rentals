@@ -27,11 +27,14 @@ end
 group :development do
   gem 'brakeman'
   gem 'bullet'
+  gem 'letter_opener'
 end
 
+gem 'aasm'
 gem 'apollo_upload_server'
 gem 'devise'
 gem 'devise-jwt'
+gem 'dotenv-rails'
 gem 'file_validators'
 gem 'graphql'
 gem 'graphql-batch'

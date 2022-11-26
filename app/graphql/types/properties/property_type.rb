@@ -13,6 +13,7 @@ module Types
       field :property_description, String, null: true
       field :neighbourhood_details, String, null: true
       field :attachments, [Types::Attachments::AttachmentType], null: true
+      field :unit_counts, Integer, null: true
       field :units, [Types::Units::UnitType], null: true
       field :special_amenities, [Types::Amenities::AmenityType], null: true
       field :normal_amenities, [Types::Amenities::AmenityType], null: true
@@ -26,6 +27,10 @@ module Types
         define_method(association) do
           preload_association(object, association)
         end
+      end
+
+      def units_counts
+        object.units.size
       end
     end
   end

@@ -3,17 +3,15 @@
 module Attributes
   module Properties
     class PropertyAttributes < Types::BaseInputObject
-      graphql_name 'CreatePropertyAttributes'
-
       argument :id, ID, required: false
       argument :owner_id, ID, required: true
-      argument :property_type, Types::Enum::Properties::PropertyTypeEnum, required: true
-      argument :occupancy_type, Types::Enum::Properties::OccupancyTypeEnum, required: true
+      argument :property_type, Types::Enum::Properties::PropertyTypeEnum, required: false
+      argument :occupancy_type, Types::Enum::Properties::OccupancyTypeEnum, required: false
       argument :property_name, String, required: true
-      argument :lat, String, required: true
-      argument :lng, String, required: true
-      argument :property_description, String, required: true
-      argument :neighbourhood_details, String, required: true
+      argument :lat, String, required: false
+      argument :lng, String, required: false
+      argument :property_description, String, required: false
+      argument :neighbourhood_details, String, required: false
 
       argument :attachments,
                [Attributes::Attachments::AttachmentAttributes],

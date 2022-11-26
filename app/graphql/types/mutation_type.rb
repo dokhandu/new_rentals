@@ -7,8 +7,15 @@ module Types
 
     # Property
     field :create_property, mutation: Mutations::Properties::CreateProperty
+    field :update_property, mutation: Mutations::Properties::UpdateProperty
 
     # Attachment
     field :create_attachment, mutation: ::Mutations::Attachments::CreateAttachment
+
+    # Tenant
+    field :create_tenant, mutation: ::Mutations::Tenants::CreateTenant
+    field :interview_tenant, mutation: ::Mutations::Tenants::InterviewTenant
+    field :accept_tenant, mutation: ::Mutations::Tenants::ApproveTenant
+    field :decline_tenant, mutation: ::Mutations::Tenants::DeclineTenant
   end
 end

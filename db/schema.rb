@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_18_164108) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_26_090448) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -122,16 +122,37 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_18_164108) do
     t.index ["user_id"], name: "index_subscription_plans_on_user_id"
   end
 
+  create_table "tenants", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "property_id"
+    t.bigint "unit_id"
+    t.string "application_title"
+    t.string "application_detail"
+    t.string "cid"
+    t.string "current_employer"
+    t.string "family_composition"
+    t.boolean "pets"
+    t.integer "state", default: 0, null: false
+    t.datetime "moved_in_date"
+    t.datetime "prefer_move_in_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_tenants_on_property_id"
+    t.index ["unit_id"], name: "index_tenants_on_unit_id"
+    t.index ["user_id"], name: "index_tenants_on_user_id"
+  end
+
   create_table "units", force: :cascade do |t|
     t.bigint "property_id"
     t.integer "monthly_rent"
     t.boolean "occupied"
     t.string "unit_number"
-    t.string "nos_of_bed"
-    t.string "nos_of_bath"
+    t.integer "nos_of_bed"
+    t.integer "nos_of_bath"
     t.string "unit_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "nos_of_applicants", default: 0
     t.index ["property_id"], name: "index_units_on_property_id"
   end
 
@@ -159,5 +180,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_18_164108) do
   add_foreign_key "portal_settings", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "subscription_plans", "users"
+  add_foreign_key "tenants", "properties"
+  add_foreign_key "tenants", "users"
+  add_foreign_key "units", "properties"
   add_foreign_key "users", "roles"
 end

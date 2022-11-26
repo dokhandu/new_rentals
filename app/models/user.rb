@@ -40,6 +40,8 @@ class User < ApplicationRecord
 
   enum status: { inactive: 0, active: 2 }
 
+  delegate :full_name, to: :profile, allow_nil: true
+
   accepts_nested_attributes_for(
     :profile,
     :subscription_plan,

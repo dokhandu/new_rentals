@@ -9,5 +9,12 @@ module Types
     # Users
     field :users, resolver: Queries::Users
     field :user, resolver: Queries::User
+
+    # Units
+    field :units, resolver: Queries::Units
+    field :unit, resolver: Queries::Unit
+
+    # Property
+    field :property, resolver: Queries::Property
   end
 end

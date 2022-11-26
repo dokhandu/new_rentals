@@ -8,8 +8,8 @@ module Attributes
       argument :monthly_rent, Integer, required: false
       argument :occupied, Boolean, required: false
       argument :unit_number, String, required: false
-      argument :nos_of_bed, String, required: false
-      argument :nos_of_bath, String, required: false
+      argument :nos_of_bed, Integer, required: false
+      argument :nos_of_bath, Integer, required: false
       argument :unit_description, String, required: false
 
       argument :attachments,
