@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_20_140701) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_26_090448) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -152,6 +152,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_140701) do
     t.string "unit_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "nos_of_applicants", default: 0
     t.index ["property_id"], name: "index_units_on_property_id"
   end
 
