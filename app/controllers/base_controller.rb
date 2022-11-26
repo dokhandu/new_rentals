@@ -8,12 +8,10 @@ class BaseController < ApplicationController
 
   def need_authentication?
     query_parse = GraphQL::Query.new(NewRentalsSchema, params[:query].to_s)
-    PUBLIC.exclude?(query_parse.selected_operation&.selections[0].name)
+    PUBLIC.exclude?(query_parse.selected_operation&.selections[0].name) # rubocop:disable Lint/SafeNavigationChain
   rescue StandardError => e
     raise e unless Rails.env.development?
 
     handle_error_in_development(e)
   end
 end
-
-

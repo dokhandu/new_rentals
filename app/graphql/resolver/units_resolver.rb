@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 module Resolver
   class UnitsResolver < BaseResolver
     attr_accessor :property_type, :occupancy_type, :lat, :lng, :price
@@ -42,7 +41,7 @@ module Resolver
     def filter_by_location(units)
       return units if lat.blank? && lng.blank?
 
-      filtered_units(units.pluck(:id)).joins(:property).where(property: { lat:, lng:})
+      filtered_units(units.pluck(:id)).joins(:property).where(property: { lat:, lng: })
     end
 
     def filter_by_price(units)

@@ -13,4 +13,3 @@ module TransitionCallbacks
     after_approving
   end
 end
-

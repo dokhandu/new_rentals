@@ -6,8 +6,8 @@ class Unit < ApplicationRecord
   has_many :attachments, as: :attachable, dependent: :destroy
   has_many :normal_amenities, as: :amenitable, dependent: :destroy
 
-  scope :sort_by_price, ->(dir) { order(monthly_rent: dir ) }
-  
+  scope :sort_by_price, ->(dir) { order(monthly_rent: dir) }
+
   accepts_nested_attributes_for(
     :normal_amenities,
     :attachments,

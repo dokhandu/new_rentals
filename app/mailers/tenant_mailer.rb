@@ -5,7 +5,7 @@ class TenantMailer < ApplicationMailer
     @user_name = Tenant.find(id).user.full_name
     mail(
       to: 'sr@selise.ch',
-      subject: 'New Rentals Request Approved'
+      subject: 'New Rentals Request Approved' # rubocop:disable Rails/I18nLocaleTexts
     )
   end
 
@@ -13,8 +13,7 @@ class TenantMailer < ApplicationMailer
     @user_name = Tenant.find(id)
     mail(
       to: 'sr@selise.ch',
-      subject: 'New Rentals Unit Already Occupied'
+      subject: 'New Rentals Unit Already Occupied' # rubocop:disable Rails/I18nLocaleTexts
     )
   end
-
 end

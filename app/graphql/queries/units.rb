@@ -2,7 +2,6 @@
 
 module Queries
   class Units < Queries::BaseQuery
-
     class UnitFilterAttributes < Types::BaseInputObject
       argument :property_type, Types::Enum::Properties::PropertyTypeEnum, required: false
       argument :occupancy_type, Types::Enum::Properties::OccupancyTypeEnum, required: false

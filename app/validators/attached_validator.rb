@@ -7,4 +7,3 @@ class AttachedValidator < ActiveModel::EachValidator
     record.errors.add(attribute, :attached)
   end
 end
-

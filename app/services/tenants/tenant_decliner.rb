@@ -20,7 +20,6 @@ module Tenants
   end
 end
 
-
 # Tenant.where(state: %i[received interviewing]).group_by(&:unit_id).each do |key, value|
 #   nos = value.size
 #   Unit.find(key).update!(nos_of_applicants: nos)
