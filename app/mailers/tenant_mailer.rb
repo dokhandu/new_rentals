@@ -9,9 +9,12 @@ class TenantMailer < ApplicationMailer
     )
   end
 
-  private
-
-  def tenant
-    @tenant = Tenant.find(id)
+  def notify_tenant_occupied(id)
+    @user_name = Tenant.find(id)
+    mail(
+      to: 'sr@selise.ch',
+      subject: 'New Rentals Unit Already Occupied'
+    )
   end
+
 end

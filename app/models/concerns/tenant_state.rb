@@ -11,7 +11,7 @@ module TenantState
       state :declined
 
       event :processing do
-        transitions from: :received, to: :interviewing
+        transitions from: :received, to: :interviewing, if: :vacant?
       end
 
       event :approving do

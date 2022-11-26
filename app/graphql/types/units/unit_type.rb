@@ -11,7 +11,8 @@ module Types
       field :unit_number, String, null: true
       field :nos_of_bed, Integer, null: true
       field :nos_of_bath, Integer, null: true
-      field :unit_description, Boolean, null: false
+      field :nos_of_applicants, Integer, null: true
+      field :unit_description, String, null: false
       field :attachments, [Types::Attachments::AttachmentType], null: false
       field :normal_amenities, [Types::Amenities::AmenityType], null: false
     end

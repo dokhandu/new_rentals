@@ -3,11 +3,7 @@
 module Tenants
   class TenantCreator < BaseService
     def call
-
-      Tenant.new(params).tap do |tenant|
-        tenant.save!
-        TenantMailer.notify_tenant(tenant.id).deliver_now
-      end
+      Tenant.new(params.merge(state: :received)).tap(&:save!)
     end
   end
 end
