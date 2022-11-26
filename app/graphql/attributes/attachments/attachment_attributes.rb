@@ -8,6 +8,7 @@ module Attributes
       argument :category, Types::Enum::Attachments::CategoryEnum, required: true
       argument :attachable_type, String, required: false
       argument :attachable_id, Int, required: false
+      argument :user_id, ID, required: false
       argument :file, Types::CustomTypes::FileType, required: true
       argument :_destroy, Integer, required: false
     end

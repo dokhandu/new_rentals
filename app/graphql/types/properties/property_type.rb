@@ -13,7 +13,7 @@ module Types
       field :property_description, String, null: true
       field :neighbourhood_details, String, null: true
       field :attachments, [Types::Attachments::AttachmentType], null: true
-      field :unit_counts, Integer, null: true
+      field :units_count, Integer, null: true
       field :units, [Types::Units::UnitType], null: true
       field :special_amenities, [Types::Amenities::AmenityType], null: true
       field :normal_amenities, [Types::Amenities::AmenityType], null: true
@@ -29,7 +29,7 @@ module Types
         end
       end
 
-      def units_counts
+      def units_count
         object.units.size
       end
     end
