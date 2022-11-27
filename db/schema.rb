@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_27_100320) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_27_110910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_27_100320) do
     t.datetime "updated_at", null: false
     t.index ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable"
     t.index ["user_id"], name: "index_attachments_on_user_id"
+  end
+
+  create_table "maintenances", force: :cascade do |t|
+    t.bigint "tenant_id"
+    t.bigint "property_id"
+    t.integer "priority"
+    t.integer "state"
+    t.integer "request_type"
+    t.datetime "request_date"
+    t.string "descriptions"
+    t.string "request_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_maintenances_on_property_id"
+    t.index ["tenant_id"], name: "index_maintenances_on_tenant_id"
   end
 
   create_table "portal_settings", force: :cascade do |t|
@@ -179,6 +194,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_27_100320) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "attachments", "users"
+  add_foreign_key "maintenances", "properties"
+  add_foreign_key "maintenances", "tenants"
   add_foreign_key "portal_settings", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "subscription_plans", "users"
