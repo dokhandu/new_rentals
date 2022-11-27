@@ -7,7 +7,7 @@ module Tenants
     attr_accessor :tenant
 
     def call
-      @tenant = Tenant.find_by(id: params[:id]).tap(&:processing)
+      @tenant = Tenant.find_by(id: params[:id]).tap(&:processing).save!
       post_transition
       true
     end

@@ -20,5 +20,9 @@ module Types
 
     # Maintenance
     field :create_maintenance, mutation: ::Mutations::Maintenances::CreateMaintenance
+    field :on_hold_maintenance, mutation: ::Mutations::Maintenances::OnHoldMaintenance
+    field :work_maintenance, mutation: ::Mutations::Maintenances::WorkMaintenance
+    field :confirm_maintenance, mutation: ::Mutations::Maintenances::ConfirmMaintenance
+    field :finish_maintenance, mutation: ::Mutations::Maintenances::FinishMaintenance
   end
 end
