@@ -6,7 +6,6 @@ module Attributes
       argument :role_id, ID, required: false
       argument :enabled, Boolean, required: false
       argument :status, Types::Enum::Users::StatusEnum, required: false
-      argument :query, String, required: false
     end
   end
 end

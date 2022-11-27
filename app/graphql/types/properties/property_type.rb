@@ -13,6 +13,7 @@ module Types
       field :lng, String, null: true
       field :property_description, String, null: true
       field :neighbourhood_details, String, null: true
+      field :all_occupied, String, null: false
       field :attachments, [Types::Attachments::AttachmentType], null: true
       field :units_count, Integer, null: true
       field :units, [Types::Units::UnitType], null: true
@@ -28,10 +29,12 @@ module Types
         define_method(association) do
           preload_association(object, association)
         end
-      end
 
-      def units_count
-        object.units.size
+        def all_occupied
+          return 'No Units Available' if object.units.blank?
+
+          object.units.all?(occupied: true).to_s
+        end
       end
     end
   end
