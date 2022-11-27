@@ -7,6 +7,7 @@ module Types
       field :owner, Types::Users::UserType, null: true
       field :property_type, String, null: true
       field :occupancy_type, String, null: true
+      field :upload_as, String, null: false
       field :property_name, String, null: true
       field :lat, String, null: true
       field :lng, String, null: true

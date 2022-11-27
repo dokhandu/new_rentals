@@ -14,6 +14,7 @@ class Property < ApplicationRecord
 
   enum property_type: { modern_building: 0, traditional_house: 2 }
   enum occupancy_type: { single_family_home: 0, multi_family_home: 2 }
+  enum upload_as: { exchange: 0, owner: 2 }
 
   accepts_nested_attributes_for(
     :attachments,

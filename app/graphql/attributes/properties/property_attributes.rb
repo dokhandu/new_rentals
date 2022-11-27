@@ -7,6 +7,7 @@ module Attributes
       argument :owner_id, ID, required: true
       argument :property_type, Types::Enum::Properties::PropertyTypeEnum, required: false
       argument :occupancy_type, Types::Enum::Properties::OccupancyTypeEnum, required: false
+      argument :upload_as, Types::Enum::Properties::UploadAsEnum, required: false
       argument :property_name, String, required: true
       argument :lat, String, required: false
       argument :lng, String, required: false
