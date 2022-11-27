@@ -16,5 +16,6 @@ module Types
 
     # Property
     field :property, resolver: Queries::Property
+    field :properties, resolver: Queries::Properties
   end
 end

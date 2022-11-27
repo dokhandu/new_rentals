@@ -9,7 +9,8 @@ module Resolver
       :offset_page,
       :limit_per_page,
       :sort,
-      :direction
+      :direction,
+      :query
     )
 
     def initialize(current_user:, params: {})
