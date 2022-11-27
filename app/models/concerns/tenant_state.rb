@@ -6,8 +6,8 @@ module TenantState
   included do
     aasm column: :state, enum: true, whiny_persistence: true do
       state :received, initial: true
-      state :interviewing, initial: true
-      state :accepted, initial: true
+      state :interviewing
+      state :accepted
       state :declined
 
       event :processing do

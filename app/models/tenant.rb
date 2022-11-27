@@ -12,6 +12,8 @@ class Tenant < ApplicationRecord
   belongs_to :unit
   belongs_to :user
 
+  has_many :maintenances, dependent: :destroy, inverse_of: :tenant
+
   enum state: { received: 0, interviewing: 5, accepted: 10, declined: 15 }
 
   def decrementable?

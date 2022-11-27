@@ -17,5 +17,8 @@ module Types
     field :interview_tenant, mutation: ::Mutations::Tenants::InterviewTenant
     field :accept_tenant, mutation: ::Mutations::Tenants::ApproveTenant
     field :decline_tenant, mutation: ::Mutations::Tenants::DeclineTenant
+
+    # Maintenance
+    field :create_maintenance, mutation: ::Mutations::Maintenances::CreateMaintenance
   end
 end
