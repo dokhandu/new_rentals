@@ -13,6 +13,6 @@ module TransitionCallbacks
   end
 
   def after_rejecting
-    after_approving
+    tenant.decrement_unit_applicants
   end
 end
