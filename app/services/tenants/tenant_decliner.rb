@@ -7,7 +7,12 @@ module Tenants
     attr_accessor :tenant
 
     def call
-      @tenant = Tenant.find_by(id: params[:id]).tap(&:rejecting).save!
+      ActiveRecord::Base.transaction do
+        @tenant = Tenant.find_by(id: params[:id])
+        tenant.send(:rejecting)
+        tenant.save!
+      end
+
       post_transition
       true
     end

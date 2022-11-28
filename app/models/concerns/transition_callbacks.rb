@@ -2,6 +2,8 @@
 
 module TransitionCallbacks
   def after_processing
+    return true
+
     ::TenantMailer.notify_tenant(tenant.id).deliver_now
   end
 
