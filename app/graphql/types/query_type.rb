@@ -17,5 +17,13 @@ module Types
     # Property
     field :property, resolver: Queries::Property
     field :properties, resolver: Queries::Properties
+
+    # Tenant
+    field :tenant, resolver: Queries::Tenant
+    field :tenants, resolver: Queries::Tenants
+
+    # Maintenance
+    # field :maintenance, resolve: Queries::Maintenance
+    # field :maintenances, resolver: Queries::Maintenances
   end
 end
