@@ -9,10 +9,10 @@ module TransitionCallbacks
 
   def after_approving
     tenant.decrement_unit_applicants
+    tenant.user.update!(role_id: 2)
   end
 
   def after_rejecting
     after_approving
-    tenant.user.update!(role_id: 2)
   end
 end
