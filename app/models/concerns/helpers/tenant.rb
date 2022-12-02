@@ -6,7 +6,7 @@ module Helpers
 
     def vacant?
       if unit.occupied?
-       # TenantMailer.notify_tenant_occupied(id).deliver_now
+        # TenantMailer.notify_tenant_occupied(id).deliver_now
         update!(state: declined)
         false
       else

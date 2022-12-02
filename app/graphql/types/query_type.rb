@@ -24,6 +24,6 @@ module Types
 
     # Maintenance
     # field :maintenance, resolve: Queries::Maintenance
-    # field :maintenances, resolver: Queries::Maintenances
+    field :maintenances, resolver: Queries::Maintenances
   end
 end

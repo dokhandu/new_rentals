@@ -2,8 +2,6 @@
 
 class TenantMailer < ApplicationMailer
   def notify_tenant(id)
-    return
-
     @user_name = Tenant.find(id).user.full_name
     mail(
       to: 'sr@selise.ch',
@@ -12,8 +10,6 @@ class TenantMailer < ApplicationMailer
   end
 
   def notify_tenant_occupied(id)
-    return
-
     @user_name = Tenant.find(id)
     mail(
       to: 'sr@selise.ch',
