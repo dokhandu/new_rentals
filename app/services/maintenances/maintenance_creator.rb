@@ -2,10 +2,13 @@
 
 module Maintenances
   class MaintenanceCreator < BaseService
+    attr_accessor :maintenance
+
     def call
       raise StandardError, 'You do not belong to the given property, please check your property' unless valid_tenant
 
-      Maintenance.new(params).tap(&:save)
+      @maintenance = Maintenance.new(params).tap(&:save)
+      ::MaintenanceMailer.notify_received(maintenance.id).deliver_now
     end
 
     private

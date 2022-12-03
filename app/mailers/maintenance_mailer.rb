@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 class MaintenanceMailer < ApplicationMailer
-  def notify_on_hold(id)
-    @user_name = Tenant.find(id).user.full_name
+  def notify_received(id)
+    maintenance = Maintenance.find(id)
+    tenant = maintenance.tenant
+    @user = tenant.user
+
     mail(
-      to: 'sr@selise.ch',
-      subject: 'New Rentals Request Approved' # rubocop:disable Rails/I18nLocaleTexts
+      to: @user.email,
+      subject: 'Maintenance Request: Received' # rubocop:disable Rails/I18nLocaleTexts
     )
   end
 end

@@ -5,16 +5,12 @@
     <style>
         .email {
             margin: auto;
-            width: 70%;
+            width: 65%;
             border: 2px solid #D7385E;
             border-radius: 8px;
             background: #FFFFFF;
         }
-        .label {
-            color: #D7385E;
-            font-size: 18px;
-            margin-top: 12px;
-        }
+
         .button {
             background: #D7385E;
             color: white;
@@ -42,12 +38,13 @@
         }
         .main-content {
             background: #F5F5F5;
-            padding: 10%;
+            padding: 8%;
         }
 
         a {
             color: #FFFFFF !important;
             text-decoration: none;
+            margin: auto;
         }
 
     </style>
@@ -62,7 +59,7 @@
           </p>
         </div>
         <div style="margin: 20px; padding: 24px;">
-          <%= image_tag attachments['img.png'].url, alt: "newrentals logo" %>
+          <%= image_tag attachments['logo.svg'].url, style: "margin: auto; width: 27%" , alt: "newrentals logo" %>
           <p class="body">
             <%= yield %>
           </p>

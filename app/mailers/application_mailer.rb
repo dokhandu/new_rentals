@@ -8,6 +8,6 @@ class ApplicationMailer < ActionMailer::Base
 
 
   def set_logo
-    attachments.inline['logo_upc.png'] = Rails.root.join('app/assets/img.png').read
+    attachments.inline['logo.svg'] = Rails.root.join('app/assets/logo.svg').read
   end
 end
