@@ -19,7 +19,7 @@ module TransitionCallbacks
 
   def after_analyzing
     return
-    
+
     tenant = maintenance.tenant
   end
 end

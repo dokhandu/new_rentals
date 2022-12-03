@@ -3,12 +3,23 @@
 class Api::V1::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  def destroy
-    super
-  end
-
   def respond_to_on_destroy
-    head :no_content
+    if request.headers['Authorization'].present?
+      jwt_payload = JWT.decode(request.headers['Authorization'].split(' ').last, Rails.application.credentials.devise_jwt_secret_key!).first
+      current_user = User.find(jwt_payload['sub'])
+    end
+
+    if current_user
+      render json: {
+        status: 200,
+        message: 'Logged out successfully.'
+      }, status: :ok
+    else
+      render json: {
+        status: 401,
+        message: "Couldn't find an active session."
+      }, status: :unauthorized
+    end
   end
 
   # GET /resource/sign_in
@@ -33,3 +44,6 @@ class Api::V1::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 end
+
+
+# Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMTQ2NGMwMy01NGI2LTQxOGUtOGEyOC1lNDc1ZWZiNzQ2MGMiLCJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjcwMDU0MDIzLCJleHAiOjE2NzAyMjY4MjN9.w3cYf4wBZNOLEj2IjTdOoUTkYqqUULg-Zjbb-5dTGrQ
