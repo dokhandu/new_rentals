@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module TransitionCallbacks
+  # Tenant
   def after_processing
     ::TenantMailer.notify_tenant(tenant.id).deliver_now
   end
@@ -12,5 +13,13 @@ module TransitionCallbacks
 
   def after_rejecting
     tenant.decrement_unit_applicants
+  end
+
+  # Maintenance
+
+  def after_analyzing
+    return
+    
+    tenant = maintenance.tenant
   end
 end
