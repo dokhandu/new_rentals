@@ -10,7 +10,7 @@ class ApplicationMailer < ActionMailer::Base
 
 
   def set_logo
-    attachments.inline['logo.svg'] = Rails.root.join('app/assets/logo.svg').read
+    attachments.inline['img.png'] = Rails.root.join('app/assets/img.png').read
   end
 
   def set_multipart_headers # rubocop:disable Metrics/AbcSize
