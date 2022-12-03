@@ -4,7 +4,7 @@ class TenantMailer < ApplicationMailer
   def notify_tenant(id)
     tenant = Tenant.find(id)
     @user_name = tenant.user.full_name
-    @property = tenant.property.name
+    @property = tenant.property
     mail(
       to: 'dk2+1@selise.ch',
       subject: 'New Rentals Request Approved' # rubocop:disable Rails/I18nLocaleTexts
@@ -14,7 +14,7 @@ class TenantMailer < ApplicationMailer
   def notify_tenant_occupied(id)
     tenant = Tenant.find(id)
     @user_name = tenant.user.full_name
-    @property = tenant.property.name
+    @property = tenant.property
 
     mail(
       to: 'dk2+1@selise.ch',
