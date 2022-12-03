@@ -11,6 +11,7 @@ module Queries
     type [Types::Maintenances::MaintenanceType], null: false
 
     def resolve(attributes: {})
+      binding.pry
       ::Resolver::MaintenanceResolver.new(current_user:, params: attributes.to_h).call
     end
   end

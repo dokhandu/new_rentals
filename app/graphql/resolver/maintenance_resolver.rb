@@ -13,7 +13,7 @@ module Resolver
     private
 
     def paginate_maintenance
-      Property.all.limit(limit_per_page).offset(offset_page)
+      Maintenance.all.limit(limit_per_page).offset(offset_page)
     end
 
     def filter_by_tenant_id(maintenances)

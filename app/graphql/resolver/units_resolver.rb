@@ -10,6 +10,7 @@ module Resolver
         .try { |units| filter_by_occupancy(units) }
         .try { |units| filter_by_location(units) }
         .try { |units| filter_by_price(units) }
+        .try { |units| search_by_address(units) }
         .try { |units| sort_by_price(units) }
     end
 
@@ -54,6 +55,18 @@ module Resolver
       return units if sort.blank?
 
       units.public_send("sort_by_#{sort}", set_direction)
+    end
+
+    def search_by_address(units)
+      return units if query.blank?
+
+      units.joins(:property).where(
+        "CONCAT_WS(
+          ' ',
+          neighbourhood_details
+         )
+         iLIKE ?", "%#{query.squish}%"
+      )
     end
   end
 end

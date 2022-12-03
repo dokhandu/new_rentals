@@ -15,7 +15,7 @@ module TenantState
       end
 
       event :approving do
-        transitions from: :interviewing, to: :accepted
+        transitions from: :interviewing, to: :accepted, if: :vacant?
       end
 
       event :rejecting do
