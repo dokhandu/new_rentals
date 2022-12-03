@@ -17,9 +17,11 @@ module Resolver
     private
 
     def paginated_units
-      Unit.where(occupied: false).limit(limit_per_page)
-          .offset(offset_page)
-          .uniq { |unit| [unit.property_id, unit.monthly_rent] }
+      ids = ::Unit.where(occupied: false).limit(limit_per_page)
+                  .offset(offset_page)
+                  .uniq { |unit| [unit.property_id, unit.monthly_rent] }.pluck(:id).uniq
+
+      ::Unit.where(id: ids)
     end
 
     def filtered_units(ids)
