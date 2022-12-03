@@ -16,12 +16,4 @@ module TransitionCallbacks
     tenant.decrement_unit_applicants
     ::TenantMailer.notify_tenant_rejected(tenant.id).deliver_now
   end
-
-  # Maintenance
-
-  def after_analyzing
-    return
-
-    tenant = maintenance.tenant
-  end
 end

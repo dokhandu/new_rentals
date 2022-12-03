@@ -3,7 +3,7 @@
 class TenantMailer < ApplicationMailer
   def notify_tenant_interviewing(id)
     tenant = Tenant.find(id)
-    @use = tenant.user
+    @user = tenant.user
     @property = tenant.property
 
     mail(
