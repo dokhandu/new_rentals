@@ -7,6 +7,7 @@ module TransitionCallbacks
   end
 
   def after_approving
+    tenant.unit.update!(occupied: true)
     tenant.decrement_unit_applicants
     tenant.user.update!(role_id: 2)
     ::TenantMailer.notify_tenant(tenant.id).deliver_now

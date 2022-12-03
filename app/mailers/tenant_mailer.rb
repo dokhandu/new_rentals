@@ -19,7 +19,7 @@ class TenantMailer < ApplicationMailer
 
     mail(
       to: @user.email,
-      subject: 'New Rentals: Approved' # rubocop:disable Rails/I18nLocaleTexts
+      subject: 'New Rentals: Rejected' # rubocop:disable Rails/I18nLocaleTexts
     )
   end
 
