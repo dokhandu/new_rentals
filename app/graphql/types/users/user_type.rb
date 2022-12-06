@@ -12,6 +12,8 @@ module Types
       field :subscription_plan, Types::SubscriptionPlans::SubscriptionPlanType, null: true
       field :portal_setting, Types::PortalSettings::PortalSettingType, null: true
       field :profile_pic, Types::Attachments::AttachmentType, null: true
+      field :property, Types::Properties::PropertyType, null: true
+      field :tenant, Types::Tenants::TenantType, null: true
       field :profile_background, Types::Attachments::AttachmentType, null: true
 
       %i[
@@ -24,6 +26,22 @@ module Types
         define_method(association) do
           preload_association(object, association)
         end
+      end
+
+      def property
+        return unless current_user.role_id == 2
+
+        return if current_user.nil?
+
+        ::Tenant.find_by(user_id: current_user.id).property
+      end
+
+      def tenant
+        return unless current_user.role_id == 2
+
+        return if current_user.nil?
+
+        ::Tenant.find_by(user_id: current_user.id)
       end
     end
   end

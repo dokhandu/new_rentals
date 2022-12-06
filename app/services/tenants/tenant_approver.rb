@@ -9,7 +9,11 @@ module Tenants
       @tenant = Tenant.find_by(id: params[:id])
       return true if tenant.accepted?
 
-      tenant.send(:approving)
+      ActiveRecord::Base.transaction do
+        tenant.send(:approving)
+        tenant.save!
+      end
+
       post_transition
       true
     end

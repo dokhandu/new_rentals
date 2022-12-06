@@ -1,19 +1,47 @@
 # frozen_string_literal: true
 
 class TenantMailer < ApplicationMailer
-  def notify_tenant(id)
-    @user_name = Tenant.find(id).user.full_name
+  def notify_tenant_interviewing(id)
+    tenant = Tenant.find(id)
+    @user = tenant.user
+    @property = tenant.property
+
     mail(
-      to: 'sr@selise.ch',
-      subject: 'New Rentals Request Approved' # rubocop:disable Rails/I18nLocaleTexts
+      to: @user.email,
+      subject: 'New Rentals: Interviewing' # rubocop:disable Rails/I18nLocaleTexts
+    )
+  end
+
+  def notify_tenant_rejected(id)
+    tenant = Tenant.find(id)
+    @user = tenant.user
+    @property = tenant.property
+
+    mail(
+      to: @user.email,
+      subject: 'New Rentals: Rejected' # rubocop:disable Rails/I18nLocaleTexts
+    )
+  end
+
+  def notify_tenant(id)
+    tenant = Tenant.find(id)
+    @user = tenant.user
+    @property = tenant.property
+
+    mail(
+      to: @user.email,
+      subject: 'New Rentals: Request Approved' # rubocop:disable Rails/I18nLocaleTexts
     )
   end
 
   def notify_tenant_occupied(id)
-    @user_name = Tenant.find(id)
+    tenant = Tenant.find(id)
+    @user = tenant.user
+    @property = tenant.property
+
     mail(
-      to: 'sr@selise.ch',
-      subject: 'New Rentals Unit Already Occupied' # rubocop:disable Rails/I18nLocaleTexts
+      to: @user.email,
+      subject: 'New Rentals: Already Occupied' # rubocop:disable Rails/I18nLocaleTexts
     )
   end
 end

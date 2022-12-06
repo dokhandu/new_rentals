@@ -15,6 +15,13 @@ module Types
       field :unit_description, String, null: false
       field :attachments, [Types::Attachments::AttachmentType], null: false
       field :normal_amenities, [Types::Amenities::AmenityType], null: false
+      field :current_user_tenant, [Types::Tenants::TenantType], null: true
+
+      def current_user_tenant
+        return if current_user.blank?
+
+        Tenant.where(user_id: current_user.id, unit_id: object.id)
+      end
     end
   end
 end
