@@ -9,6 +9,7 @@ module Maintenances
 
       @maintenance = Maintenance.new(params).tap(&:save)
       ::MaintenanceMailer.notify_received(maintenance.id).deliver_now
+      maintenance
     end
 
     private
