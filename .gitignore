@@ -38,3 +38,4 @@ SERVER.md
 .env
 *.DS_Store
 *.sql
+.vercel
